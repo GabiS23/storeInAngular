@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Product } from './../../../core/models/product.model';
+import { Product } from 'src/app/core/models/product.model';
 import { CartService } from './../../../core/services/cart.service';
+
 @Pipe({
-  name: 'cartrepeat'
+  name: 'groupProduct'
 })
-export class CartPipe implements PipeTransform {
-  products: Product[];
+export class GroupProductPipe implements PipeTransform {
+  product: Product[];
 
   constructor(private cartService: CartService) {
   }
@@ -21,6 +22,5 @@ export class CartPipe implements PipeTransform {
     });
     return total;
   }
-
 
 }

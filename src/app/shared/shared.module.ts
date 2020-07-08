@@ -10,9 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { MaterialModule } from './../material/material.module';
 import { ExponentialPipe } from './pipes/exponential/exponential.pipe';
-import { GroupProductPipe } from './pipes/groupProduct/group-product.pipe';
-import { CartPipe } from './pipes/cartrepeat/cartrepeat.pipe';
-// import { GroupProductsPipe } from './pipes/group-products.pipe';
+import { GroupProductPipe } from './pipes/groupProducts/group-product.pipe';
 
 @NgModule({
   declarations: [
@@ -21,9 +19,7 @@ import { CartPipe } from './pipes/cartrepeat/cartrepeat.pipe';
     HeaderComponent,
     FooterComponent,
     ExponentialPipe,
-    GroupProductPipe,
-    CartPipe,
-    // GroupProductsPipe,
+    GroupProductPipe
   ],
   exports: [
     // ExponentialPipe,
