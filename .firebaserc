@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "storeinangular": {
+      "hosting": {
+        "myApp": [
+          "storeinangular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "storeinangular"
+  }
+}

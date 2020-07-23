@@ -25,7 +25,8 @@ import { GroupProductPipe } from './pipes/groupProducts/group-product.pipe';
     // ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    GroupProductPipe
   ],
   imports: [
     CommonModule,

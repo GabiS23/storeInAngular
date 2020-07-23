@@ -1,26 +1,32 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Product } from 'src/app/core/models/product.model';
-import { CartService } from './../../../core/services/cart.service';
 
 @Pipe({
   name: 'groupProduct'
 })
 export class GroupProductPipe implements PipeTransform {
-  product: Product[];
+  groupedProducts: any[] = [];
 
-  constructor(private cartService: CartService) {
-  }
-
-  transform(product: any, args?: any): any {
-    var total = 0;
-    this.cartService.cart$.subscribe(products => {
-      products.forEach((elemento) => {
-        if (elemento.id === product.id) {
-          total += 1;
+  transform(value: Product[]): any {
+    value.forEach((product) => {
+      if (this.groupedProducts.length === 0) {
+        this.groupedProducts.push(
+          Object.assign(product, { quantity: 1, amount: product.price })
+        );
+      } else {
+        const repeatedProduct = this.groupedProducts.findIndex(
+          (p) => p.id === product.id
+        );
+        if (repeatedProduct === -1) {
+          this.groupedProducts.push(
+            Object.assign(product, { quantity: 1, amount: product.price })
+          );
+        } else {
+          this.groupedProducts[repeatedProduct].quantity++;
+          this.groupedProducts[repeatedProduct].amount = this.groupedProducts[repeatedProduct].quantity * this.groupedProducts[repeatedProduct].price;
         }
-      });
+      }
     });
-    return total;
+    return this.groupedProducts;
   }
-
 }
